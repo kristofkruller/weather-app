@@ -5,21 +5,19 @@
 This is a React-based weather application utilizing Redux, RTK Query, React Router, TypeScript, and Tailwind CSS. The application is set up with a development environment using Vite and configured for efficient debugging in Visual Studio Code under Debian(WSL). 
 Data feeded by [Weather API](https://openweathermap.org/api)
 
-[Github](https://github.com/kristofkruller)
-[Repo](https://github.com/kristofkruller/weather-app)
-
 ## Prerequisites
 
 - Node.js
 - npm
 - Visual Studio Code
 - Google Chrome (for debugging)
+- Docker (for containerization)
 
 ## Installation
 
 Clone the repository and install the dependencies:
 ```
-git clone [your-repository-url]
+git clone https://github.com/kristofkruller/weather-app
 cd weather-app
 npm install
 ```
