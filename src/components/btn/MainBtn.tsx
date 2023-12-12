@@ -1,7 +1,7 @@
 import { BtnProp } from "../../../app"
 
 //ICONS
-import { IoMdAdd } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io"
 import { RiRestartLine } from "react-icons/ri"
 
 const MainBtn = ({ content, onClick }: BtnProp) => {

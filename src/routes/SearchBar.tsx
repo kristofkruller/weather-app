@@ -24,7 +24,7 @@ const SearchBar = () => {
     }
   }, [searchTerm])
 
-  const uniqueCities = filterDuplicateCities(cities);
+  const uniqueCities = filterDuplicateCities(cities)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value)

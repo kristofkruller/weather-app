@@ -1,16 +1,12 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGetWeatherQuery } from '../store/slices/weatherApiSlice'
-import { 
-  getWindDirection, 
-  getHumidityValue, 
-  getVisibilityValue, 
-  getSunTime, 
-  selectWeatherIcon 
-} from '../assets/helpers'
+import { selectWeatherIcon } from '../assets/helpers'
 import { WeatherResult } from '../../app'
 import Loading from '../assets/Loading'
 import Error from '../assets/Error'
 import Clock from '../components/Clock'
+import MainBtn from '../components/btn/MainBtn'
+import WeatherDetails from '../components/WeatherDetails'
 
 const Weather = () => {
   const cityName = useParams<{ cityName: string }>().cityName || ''
@@ -21,33 +17,24 @@ const Weather = () => {
   if (isError || !weatherData) return <Error message='Error loading weather data' />
 
   const weather: WeatherResult = weatherData
-
-  // Helper function to select appropriate weather icon
+  const handleHome = () => {
+    navigate('/')
+  }
 
   return (
-    <div>
+    <div className='flex flex-col align-center justify-center text-center my-5'>
       <Clock />
-      <h1>{weather.name}</h1>
-      {/* Weather icons */}
+      <h1 className='city hover:transform-none mt-5 -mb-2'>{weather.name}</h1>
       {weather.weather.map((w, index) => (
-        <div key={index}>
+        <div key={index} className='flex flex-col align-center justify-center'>
           {selectWeatherIcon(w.main)}
-          <span>{w.description}</span>
+          <span className='city text-xs hover:transform-none mb-10 -mt-2 cursor-default'>{w.description}</span>
         </div>
       ))}
-      {/* Weather details */}
-      <p>Temperature: {weather.main.temp}°C</p>
-      <p>Feels Like: {weather.main.feels_like}°C</p>
-      <p>Humidity: {getHumidityValue(weather.main.humidity)}</p>
-      <p>Wind: {weather.wind.speed} m/s, Direction: {getWindDirection(weather.wind.deg)}</p>
-      <p>Visibility: {getVisibilityValue(weather.visibility)}</p>
-      <p>Sunrise: {getSunTime(weather.sys.sunrise)}</p>
-      <p>Sunset: {getSunTime(weather.sys.sunset)}</p>
-
-
-
-      {/* Back Button */}
-      <button onClick={() => navigate('/')}>Back to Home</button>
+      <WeatherDetails weather={weather} />
+      <div>
+        <MainBtn content='back' onClick={handleHome} />
+      </div>
     </div>
   )
 }

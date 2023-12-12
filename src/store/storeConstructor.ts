@@ -23,15 +23,15 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(weatherApiSlice.middleware),
-});
+})
 
 export const persistor = persistStore(store)
 
 // let useSelector (useAppSelector) know what store holds
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>
 
 // for typed dispatch
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch
 
 // for websocket connections
 // setupListeners(store.dispatch)

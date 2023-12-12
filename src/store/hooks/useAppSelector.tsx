@@ -7,4 +7,4 @@ import { useDispatch } from 'react-redux'
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 // useDispatch for TS
-export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppDispatch = () => useDispatch<AppDispatch>()

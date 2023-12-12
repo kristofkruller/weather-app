@@ -15,10 +15,10 @@ export const weatherApiSlice = createApi({
   tagTypes: ["Cities"],
   endpoints: builder => ({
     getWeather: builder.query<WeatherResult, string>({
-      query: (city) => `/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&lang=hu&units=metric`,
+      query: (city) => `/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&lang=en&units=metric`,
     }),
     searchCities: builder.query<City[], string>({
-      query: (name) => `/geo/1.0/direct?q=${name}&limit=8&lang=hu&appid=${import.meta.env.VITE_WEATHER_API_KEY}`,
+      query: (name) => `/geo/1.0/direct?q=${name}&limit=8&lang=en&appid=${import.meta.env.VITE_WEATHER_API_KEY}`,
       providesTags: ["Cities"],
     }),
   })

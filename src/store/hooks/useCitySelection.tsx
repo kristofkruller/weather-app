@@ -7,7 +7,7 @@ import { City } from '../../../app'
 // dedicated selector hook to refresh cached cities
 const useCitySelection = () => {
   const dispatch = useAppDispatch()
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
   const { data: cities = [], ...query } = useSearchCitiesQuery(searchTerm, {
     skip: searchTerm.length === 0, // Skip the query if no search term is entered
   })

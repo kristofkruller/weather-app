@@ -16,7 +16,7 @@ const selectedCitiesSlice = createSlice({
       state.cities = state.cities.filter(city => city.name !== action.payload)
     },
   },
-});
+})
 
 export const { addCity, removeCity } = selectedCitiesSlice.actions
 export default selectedCitiesSlice.reducer

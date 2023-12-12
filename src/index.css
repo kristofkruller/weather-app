@@ -94,7 +94,7 @@
     @apply cursor-default flex flex-col items-center justify-around xl:w-1/2 lg:w-3/4 w-full mx-auto text-center h-full [&>*]:my-5 [&>*]:focus:outline-none
   }
   .add-button {
-	  @apply relative shadow-lg inline-flex items-center justify-center px-5 py-2 m-5 overflow-hidden transition duration-300 ease-out border-2 rounded-lg shadow-md
+	  @apply relative shadow-lg inline-flex items-center justify-center px-5 py-2 m-5 overflow-hidden transition duration-300 ease-out border-2 rounded-lg shadow-md max-w-xs
   }
   .add-button-body {
 	  @apply absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full bg-gradient-to-r
@@ -103,21 +103,37 @@
 	  @apply absolute shadow-lg dark:shadow-lg shadow-gray-100/50 items-center justify-center w-full h-full text-center transition-all duration-300 transform font-semibold
   }
   .city {
-    @apply cursor-pointer text-slate-800/80 dark:text-gray-400 text-xl font-semibold
+    @apply cursor-pointer text-slate-800/80 dark:text-gray-400 text-xl font-semibold hover:scale-105
   }
   .city-disabled {
     @apply text-gray-400/70 cursor-not-allowed
   }
   .highlight-text {
-    @apply text-gray-200 drop-shadow-xl
+    @apply text-white dark:text-white
   }
   .actionBtn {
     @apply px-5 py-2 m-5 relative block focus:outline-none border-2 rounded-lg text-sm text-center font-semibold tracking-widest
   }
+  .weather-icon-prime {
+    @apply h-32 w-full text-sky-400 self-center	
+  }
+  .weather-det {
+    @apply text-sky-200 text-sm cursor-default
+  }
+  .det-icon {
+    @apply mx-2 text-sky-400 w-5 h-6 cursor-default
+  }
+  .time {
+    @apply text-sky-700 font-semibold text-4xl
+  }
 }
 
 /*COMPONENTS*/
-/*ACTIONBTN*/
+.weather-det {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .actionBtnTran {
 	-webkit-transition: background-color 0.3s, color 0.3s;
 	transition: background-color 0.3s, color 0.3s;

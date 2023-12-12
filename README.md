@@ -50,16 +50,26 @@ To stop the development server:
 
 ## Project Structure
 
-- `src/`: Source files for the application.
+- `src/`: Source files for the application, furthermore `assets`, `components`, `routes` and `store` folders.
 - `vite.config.js`: Configuration file for Vite, including development server settings.
 - `.vscode/`: Contains VS Code specific settings, including `launch.json` for debugging setup.
 - `Dockerfile`: Contains instructions for building the Docker image.
+- `app.d.ts`: Typescript interfaces
+- `tailwind.config.js`: default vaules, theme, animations
+- `src/index.css`: custom styles, tail classes
 
 ## Development Notes
 
 - The development server runs on **port 3050** as specified in `vite.config.js`.
 - Debugging is set up with Chrome ensure **Chrome is installed** on your system.
 - Docker is used for containerization to ensure a consistent environment across development and production.
+
+## Environment Setup
+
+Before running the application, you need to set up the necessary environment variables. Create a `.env` file in the root directory with the following content:
+
+`VITE_WEATHER_API_KEY=your_openweathermap_api_key_here`
+Replace `your_openweathermap_api_key_here` with your actual API key from OpenWeatherMap.
 
 ## Using Docker
 
@@ -78,3 +88,12 @@ Once the image is built, you can start a container using:
 `docker run -p 3050:80 weather-app`
 
 This command maps the port 80 of the container to port 3050 on your host machine, allowing you to access the application at http://localhost:3050.
+
+## Usage
+
+The application allows users to:
+
+- Search for cities using the search bar.
+- View current weather details including temperature, humidity, wind speed, and more.
+- Add cities to a favorites list for quick access.
+- Navigate to detailed weather views for individual cities.

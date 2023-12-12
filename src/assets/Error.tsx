@@ -5,7 +5,7 @@ import { RouteErrorProps } from "../../app"
 const Error = ({ message }: RouteErrorProps) => {
 
     const navigate = useNavigate()
-    let res: string = message || "This url slug is invalid";
+    let res: string = message || "This url slug is invalid"
 
     return (
         <section className='wrapper text-slate-400 dark:text-neutral-50 uppercase w-full'>

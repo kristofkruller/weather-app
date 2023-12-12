@@ -16,54 +16,62 @@ interface RouteErrorProps {
   message?: string
 }
 
+interface WeatherDetailsProps {
+  weather: WeatherResult
+}
+
+type WeatherIconMapType = {
+  [key: string]: ElementType
+}
+
 // DATA INTERFACES
 interface Weather {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
+  id: number
+  main: string
+  description: string
+  icon: string
 }
 
 interface MainWeather {
-  temp: number;
-  feels_like: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
-  humidity: number;
+  temp: number
+  feels_like: number
+  temp_min: number
+  temp_max: number
+  pressure: number
+  humidity: number
 }
 
 interface Wind {
-  speed: number;
-  deg: number;
-  gust: number;
+  speed: number
+  deg: number
+  gust: number
 }
 
 interface WeatherResult {
   coord: {
-    lon: number;
-    lat: number;
-  };
-  weather: Weather[];
-  base: string;
-  main: MainWeather;
-  visibility: number;
-  wind: Wind;
+    lon: number
+    lat: number
+  }
+  weather: Weather[]
+  base: string
+  main: MainWeather
+  visibility: number
+  wind: Wind
   clouds: {
-    all: number;
-  };
-  dt: number;
+    all: number
+  }
+  dt: number
   sys: {
-    type: number;
-    id: number;
-    country: string;
-    sunrise: number;
-    sunset: number;
-  };
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
+    type: number
+    id: number
+    country: string
+    sunrise: number
+    sunset: number
+  }
+  timezone: number
+  id: number
+  name: string
+  cod: number
 }
 
 interface City {
@@ -78,7 +86,9 @@ export {
   BtnProp,
   ThemeLayoutProps,
   RouteErrorProps,
+  WeatherDetailsProps,
   WeatherResult,
   City,
-  SelectedCitiesState
+  SelectedCitiesState,
+  WeatherIconMapType
 }
