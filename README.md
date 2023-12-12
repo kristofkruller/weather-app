@@ -3,7 +3,10 @@
 ## Overview
 
 This is a React-based weather application utilizing Redux, RTK Query, React Router, TypeScript, and Tailwind CSS. The application is set up with a development environment using Vite and configured for efficient debugging in Visual Studio Code under Debian(WSL). 
-Data feeded by [Weather API](https://openweathermap.org/api)
+Data feeded by [Weather API](https://openweathermap.org/api).
+Used endpoints:
+- [Built in call by city name](https://openweathermap.org/current#builtin)
+- [Direct geocoding call](https://openweathermap.org/api/geocoding-api#direct)
 
 ## Prerequisites
 
@@ -55,7 +58,7 @@ To stop the development server:
 ## Development Notes
 
 - The development server runs on **port 3050** as specified in `vite.config.js`.
-- Debugging is set up with Chrome; ensure **Chrome is installed** on your system.
+- Debugging is set up with Chrome ensure **Chrome is installed** on your system.
 - Docker is used for containerization to ensure a consistent environment across development and production.
 
 ## Using Docker

@@ -25,8 +25,9 @@ export default {
           '55%, 60%': { width: '6ch' },
           '65%, 70%': { width: '7ch' },
           '75%, 80%': { width: '8ch' },
-          '85%, 90%': { width: '9ch' },
-          '95%': { width: '10ch' },
+          '83%, 87%': { width: '9ch' },
+          '92%, 96%': { width: '10ch' },
+          '99%': { width: '11ch' },
         },
         cursor: {
           "0%" : {},
