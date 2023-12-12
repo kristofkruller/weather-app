@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import AddBtn from '../components/btn/AddBtn'
+import MainBtn from '../components/btn/MainBtn'
 import useCitySelection from '../store/hooks/useCitySelection'
 import { useAppSelector } from '../store/hooks/useAppSelector'
+import ActionBtn from '../components/btn/ActionBtn'
 
 const Welcome = () => {
   const navigate = useNavigate()
@@ -14,18 +15,29 @@ const Welcome = () => {
   const handleCityClick = (cityName: string) => {
     setActiveCity(cityName) // Set the active city name for highlighting
   }
-
-  const handleGoToCityDetails = () => {
+  const handleGoLoc = () => {
     if (activeCity) {
-      navigate(`/location/${activeCity.toLowerCase()}`) // Navigate to city details page
+      navigate(`/weather/${activeCity.toLowerCase()}`)
+      setActiveCity('')
     }
   }
+  const handleGoSearch = () => {
+      navigate(`/search/`)
+      setActiveCity('')
+  }
+  const handleDel = () => {
+    if (activeCity) {
+      handleRemoveCity(activeCity)
+      setActiveCity('')
+    }
+  }
+  const handleClose = () => setActiveCity('')
 
   return (
     <main className="[&>*]:my-3 md:[&>*]:my-7 [&>*]:text-center flex flex-col justify-center items-center">
       {cities.length < 1 && (
         <>
-        <h1 className="cursor-default mb-1 font-mono text-xl text-slate-700 dark:text-yellow-400 md:text-xl text-center">Welcome to weather
+        <h1 className="cursor-default mb-1 font-mono text-xl text-slate-700 dark:text-sky-400 md:text-xl text-center">Welcome to weather
           <br />
           <span className="inline-flex h-10 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent">
             by city app
@@ -38,26 +50,19 @@ const Welcome = () => {
       {cities.map((cityName, index) => (
         <div
           key={index}
-          className={`${cityName.name === activeCity ? 'highlighted-class' : ''}`}
+          className={`city ${cityName.name === activeCity ? 'highlight-text' : ''}`}
           onClick={() => handleCityClick(cityName.name)}>
           {cityName.name}
         </div>
       ))}
 
-      {activeCity && (
+      {activeCity ? (
         <>
-          <button onClick={() => {
-            handleGoToCityDetails()
-            setActiveCity('')
-          }}>Weather View</button>
-          <button onClick={() => {
-            handleRemoveCity(activeCity)
-            setActiveCity('')
-          }}>Remove</button>
+          <ActionBtn content='weather' onClick={handleGoLoc} />
+          <MainBtn content='remove' onClick={handleDel} />
+          <ActionBtn content='close' onClick={handleClose} />
         </>
-      )}
-
-      <AddBtn content="add" onClick={() => navigate("/capitals/")} />
+      ) : <MainBtn content="add" onClick={handleGoSearch} />}
     </main>
   )
 }

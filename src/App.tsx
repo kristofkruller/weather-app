@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom"
 
 //PAGES
 import Welcome from "./routes/Welcome"
-import Capitals from "./routes/Capitals"
-import Location from "./routes/Location"
+import SearchBar from "./routes/SearchBar"
+import Weather from "./routes/Weather"
 
 //LAYOUTS N ASSETS
 import ThemeLayout from "./components/ThemeLayout"
@@ -18,8 +18,8 @@ function App() {
       <Routes>
         <Route element={<RouteLayout />} errorElement={<RouteError />}>
           <Route index element={<Welcome />} />
-          <Route path="capitals" element={<Capitals />} />
-          <Route path="location/:cityName" element={<Location />} />
+          <Route path="search" element={<SearchBar />} />
+          <Route path="weather/:cityName" element={<Weather />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

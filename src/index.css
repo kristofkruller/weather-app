@@ -88,77 +88,37 @@
 }
 @layer components {
   .icon-basic {
-    @apply w-10 h-10 fill-slate-600 dark:fill-yellow-500
+    @apply w-10 h-10 fill-slate-600 dark:fill-sky-500
   }
   .wrapper {
     @apply cursor-default flex flex-col items-center justify-around xl:w-1/2 lg:w-3/4 w-full mx-auto text-center h-full [&>*]:my-5 [&>*]:focus:outline-none
   }
   .add-button {
-	  @apply relative shadow-lg inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-neutral-50 transition duration-300 ease-out border-2 rounded-lg shadow-md
+	  @apply relative shadow-lg inline-flex items-center justify-center px-5 py-2 m-5 overflow-hidden transition duration-300 ease-out border-2 rounded-lg shadow-md
   }
   .add-button-body {
-	  @apply absolute inset-0 flex items-center justify-center w-full h-full text-neutral-50 duration-300 -translate-x-full bg-gradient-to-r
+	  @apply absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full bg-gradient-to-r
   }
   .add-button-text {
-	  @apply absolute shadow-lg dark:shadow-lg shadow-gray-100/50 items-center justify-center w-full h-full text-center
+	  @apply absolute shadow-lg dark:shadow-lg shadow-gray-100/50 items-center justify-center w-full h-full text-center transition-all duration-300 transform font-semibold
+  }
+  .city {
+    @apply cursor-pointer text-slate-800/80 dark:text-gray-400 text-xl font-semibold
+  }
+  .city-disabled {
+    @apply text-gray-400/70 cursor-not-allowed
+  }
+  .highlight-text {
+    @apply text-gray-200 drop-shadow-xl
+  }
+  .actionBtn {
+    @apply px-5 py-2 m-5 relative block focus:outline-none border-2 rounded-lg text-sm text-center font-semibold tracking-widest
   }
 }
 
 /*COMPONENTS*/
-/*popup talk bubble */
-.talk-bubble {
-	margin: 40px;
-	position: relative;
-	width: 200px;
-	height: auto;
-	background-color: whitesmoke;
-}
-.border{
-  border: 8px solid #a955f7;
-}
-.round{
-  border-radius: 30px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-
-}
-.talktext{
-  padding: 1em;
-	text-align: left;
-  line-height: 1.5em;
-}
-.talktext p{
-  /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-}
-.tri-right.border.btm-left-in:before {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 30px;
-  right: auto;
-  top: auto;
-	bottom: -40px;
-	border: 20px solid;
-	border-color: #a955f7 transparent transparent #a955f7;
-}
-.tri-right.btm-left-in:after{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 38px;
-  right: auto;
-  top: auto;
-	bottom: -20px;
-	border: 12px solid;
-	border-color: whitesmoke transparent transparent whitesmoke;
-}
-
 /*ACTIONBTN*/
-.actionBtn {
+.actionBtnTran {
 	-webkit-transition: background-color 0.3s, color 0.3s;
 	transition: background-color 0.3s, color 0.3s;
 }

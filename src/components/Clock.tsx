@@ -11,7 +11,7 @@ const Clock = () => {
     return () => clearInterval(timer);
   }, []);
 
-  return <p>Current Time: {currentTime.toLocaleTimeString('hu-HU')}</p>;
+  return <p>{currentTime.toLocaleTimeString('hu-HU')}</p>;
 };
 
 export default Clock
