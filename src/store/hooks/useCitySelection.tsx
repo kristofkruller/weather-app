@@ -12,14 +12,20 @@ const useCitySelection = () => {
     skip: searchTerm.length === 0, // Skip the query if no search term is entered
   })
 
-  const handleAddCity = async(city: City) => {
-    await dispatch(addCity(city))
-    query.refetch() // Refetch
+  const handleAddCity = (city: City) => {
+    dispatch(addCity(city))
+    // Check q init
+    if (query.isLoading || query.isSuccess || query.isError) {
+      query.refetch()
+    }
   }
 
-  const handleRemoveCity = async(cityName: string) => {
-    await dispatch(removeCity(cityName))
-    query.refetch() // Refetch
+  const handleRemoveCity = (cityName: string) => {
+    dispatch(removeCity(cityName))
+    // Check q init
+    if (query.isLoading || query.isSuccess || query.isError) {
+      query.refetch()
+    }
   }
 
   return { cities, setSearchTerm, handleAddCity, handleRemoveCity }

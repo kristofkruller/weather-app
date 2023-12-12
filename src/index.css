@@ -103,7 +103,7 @@
 	  @apply absolute shadow-lg dark:shadow-lg shadow-gray-100/50 items-center justify-center w-full h-full text-center transition-all duration-300 transform font-semibold
   }
   .city {
-    @apply cursor-pointer text-slate-800/80 dark:text-gray-400 text-xl font-semibold hover:scale-105
+    @apply cursor-pointer text-slate-800/80 dark:text-gray-400 text-xl font-semibold hover:scale-105 my-1
   }
   .city-disabled {
     @apply text-gray-400/70 cursor-not-allowed

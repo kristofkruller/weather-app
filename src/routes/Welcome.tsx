@@ -4,6 +4,7 @@ import MainBtn from '../components/btn/MainBtn'
 import useCitySelection from '../store/hooks/useCitySelection'
 import { useAppSelector } from '../store/hooks/useAppSelector'
 import ActionBtn from '../components/btn/ActionBtn'
+import { MdDeleteForever } from "react-icons/md";
 
 const Welcome = () => {
   const navigate = useNavigate()
@@ -18,23 +19,23 @@ const Welcome = () => {
   const handleGoLoc = () => {
     if (activeCity) {
       navigate(`/weather/${activeCity.toLowerCase()}`)
-      setActiveCity('')
+      setActiveCity(null)
     }
   }
   const handleGoSearch = () => {
       navigate(`/search/`)
-      setActiveCity('')
+      setActiveCity(null)
   }
   const handleDel = () => {
     if (activeCity) {
       handleRemoveCity(activeCity)
-      setActiveCity('')
     }
+    setActiveCity(null)
   }
-  const handleClose = () => setActiveCity('')
+  const handleClose = () => setActiveCity(null)
 
   return (
-    <main className="[&>*]:my-3 md:[&>*]:my-7 [&>*]:text-center flex flex-col justify-center items-center">
+    <main className="[&>*]:my-2 md:[&>*]:my-3 [&>*]:text-center flex flex-col justify-center items-center">
       {cities.length < 1 && (
         <>
         <h1 className="cursor-default mb-1 font-mono text-xl text-slate-700 dark:text-sky-400 md:text-xl text-center">Welcome to weather
@@ -52,17 +53,20 @@ const Welcome = () => {
           key={index}
           className={`city ${cityName.name === activeCity ? 'highlight-text' : ''}`}
           onClick={() => handleCityClick(cityName.name)}>
-          {cityName.name}
+          <span className='flex justify-center items-center gap-2 max-h-16'>
+            {cityName.name}
+            {cityName.name === activeCity && (
+                <div className={'flex justify-center items-center'}>
+                  <ActionBtn content='weather' onClick={handleGoLoc} />
+                  <MdDeleteForever className={'flex h-8 w-full hover:animate-pulse'} onClick={handleDel} />
+                </div>
+              )}
+          </span>
         </div>
       ))}
 
-      {activeCity ? (
-        <>
-          <ActionBtn content='weather' onClick={handleGoLoc} />
-          <MainBtn content='remove' onClick={handleDel} />
-          <ActionBtn content='close' onClick={handleClose} />
-        </>
-      ) : <MainBtn content="add" onClick={handleGoSearch} />}
+      {activeCity && cities.length > 0 ? (<ActionBtn content='close' onClick={handleClose} />)
+      : (<MainBtn content="add" onClick={handleGoSearch} />)}
     </main>
   )
 }

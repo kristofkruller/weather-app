@@ -22,11 +22,11 @@ const Weather = () => {
   }
 
   return (
-    <div className='flex flex-col align-center justify-center text-center my-5'>
+    <div className='flex flex-col items-center justify-center text-center my-5'>
       <Clock />
       <h1 className='city hover:transform-none mt-5 -mb-2'>{weather.name}</h1>
       {weather.weather.map((w, index) => (
-        <div key={index} className='flex flex-col align-center justify-center'>
+        <div key={index} className='flex flex-col items-center justify-center'>
           {selectWeatherIcon(w.main)}
           <span className='city text-xs hover:transform-none mb-10 -mt-2 cursor-default'>{w.description}</span>
         </div>
