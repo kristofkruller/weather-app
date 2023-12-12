@@ -118,13 +118,13 @@
     @apply h-32 w-full text-sky-400 self-center	
   }
   .weather-det {
-    @apply text-sky-200 text-sm cursor-default
+    @apply -ml-3 text-slate-600 dark:text-sky-200 text-sm cursor-default
   }
   .det-icon {
-    @apply mx-2 text-sky-400 w-5 h-6 cursor-default
+    @apply mr-2 -ml-5 text-sky-400 w-5 h-6 cursor-default
   }
   .time {
-    @apply text-sky-700 font-semibold text-4xl
+    @apply text-sky-700 dark:text-sky-500 font-semibold text-4xl
   }
 }
 
