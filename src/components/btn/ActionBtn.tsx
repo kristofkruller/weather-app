@@ -11,7 +11,7 @@ const ActionBtn = ({ content, onClick }: BtnProp) => {
 
     return (
       <button type="button" onClick={onClick}
-        className={`actionBtn hover:actionAnimOp uppercase ${colors.type}`}
+        className={`actionBtn hover:actionAnimOp uppercase relative block ${colors.type}`}
       >
         {content}
       </button>
