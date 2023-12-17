@@ -71,7 +71,7 @@ const SearchBar = () => {
           ))}
         </div>
       )}
-      <div className='flex justify-center'>
+      <div className='flex justify-center flex-wrap'>
         <MainBtn content={"back"} onClick={handleHome} />
         {selectedCity && <ActionBtn content={"save"} onClick={handleSave} />}
       </div>
