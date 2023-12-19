@@ -1,9 +1,10 @@
 // REDUX
-import { configureStore } from '@reduxjs/toolkit'
+import { Action, Dispatch, Middleware, configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from "redux-persist/lib/storage"
 import rootReducer from './rootReducer'
 import { weatherApiSlice } from './slices/weatherApiSlice'
+import { createLogger } from 'redux-logger'
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,19 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
+const logger = createLogger({
+  level: 'info',
+  collapsed: true,
+  logErrors: true,
+})
+
+const middlewares: Array<Middleware<{}, any, Dispatch<Action>>> = []
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger as Middleware<{}, any, Dispatch<Action>>)
+}
+
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
@@ -22,7 +36,8 @@ export const store = configureStore({
         // Ignore Redux Persist's action types
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(weatherApiSlice.middleware),
+    })
+    .concat(weatherApiSlice.middleware, ...middlewares)
 })
 
 export const persistor = persistStore(store)

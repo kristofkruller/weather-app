@@ -39,10 +39,7 @@
   }
   body, #root {
     margin: 0 auto;
-
-    min-width: 320px;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,7 +91,7 @@
     @apply cursor-default flex flex-col items-center justify-around xl:w-1/2 lg:w-3/4 w-full mx-auto text-center h-full [&>*]:my-5 [&>*]:focus:outline-none
   }
   .add-button {
-	  @apply relative shadow-lg inline-flex items-center justify-center px-5 py-2 m-5 overflow-hidden transition duration-300 ease-out border-2 rounded-lg shadow-md max-w-xs
+	  @apply relative shadow-lg inline-flex items-center justify-center overflow-hidden transition duration-300 ease-out border-2 rounded-lg shadow-md max-w-xs px-5 py-2 m-2 sm:mx-5
   }
   .add-button-body {
 	  @apply absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full bg-gradient-to-r

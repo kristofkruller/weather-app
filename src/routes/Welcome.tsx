@@ -51,15 +51,15 @@ const Welcome = () => {
       {cities.map((cityName, index) => (
         <div
           key={index}
-          className={`city ${cityName.name === activeCity ? 'highlight-text' : ''}`}
+          className={`city w-full ${cityName.name === activeCity ? 'highlight-text' : ''}`}
           onClick={() => handleCityClick(cityName.name)}>
-          <span className='flex justify-center items-center gap-2 max-h-16'>
+          <span className='flex justify-center items-center gap-2 flex-wrap'>
             {cityName.name}
             {cityName.name === activeCity && (
-                <div className={'flex justify-center items-center'}>
-                  <ActionBtn content='weather' onClick={handleGoLoc} />
-                  <MdDeleteForever className={'flex h-8 w-full hover:animate-pulse'} onClick={handleDel} />
-                </div>
+                <>
+                <ActionBtn content='weather' onClick={handleGoLoc} />
+                <MdDeleteForever className={'flex h-8 w-8 hover:animate-pulse'} onClick={handleDel} />
+                </>
               )}
           </span>
         </div>
